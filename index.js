@@ -9,6 +9,7 @@ module.exports = {
     },
     env: {
         browser: true,
+        es6: true,
         node: true
     },
     rules: {
@@ -17,19 +18,46 @@ module.exports = {
         'array-bracket-spacing': 'off',
         'array-callback-return': 'off',
         'array-element-newline': 'off',
-        'arrow-body-style': 'off',
-        'arrow-parens': 'off',
-        'arrow-spacing': 'off',
+        'arrow-body-style': [ // enforces no braces where they can be omitted
+            'error',
+            'as-needed'
+        ],
+        'arrow-parens': [ // allows omitting parens when there is only one argument
+            'error',
+            'as-needed'
+        ],
+        'arrow-spacing': [ // require space before and after arrow function’s arrow
+            'error',
+            {
+                before: true,
+                after: true
+            }
+        ],
         'block-scoped-var': 'off',
         'block-spacing': 'off',
-        'brace-style': 'off',
+        'brace-style': [ // require brace style
+            'error',
+            '1tbs'
+        ],
         'callback-return': 'off',
         camelcase: 'error', // require camelcase naming convention
-        'capitalized-comments': 'off',
+        'capitalized-comments': 'off', // enforce or disallow capitalization of the first letter of a comment
         'class-methods-use-this': 'off',
-        'comma-dangle': 'off',
-        'comma-spacing': 'off',
-        'comma-style': 'off',
+        'comma-dangle': [ // disallow trailing commas
+            'error',
+            'never'
+        ],
+        'comma-spacing': [ // require space after comma, disallow space before comma
+            'error',
+            {
+                before: false,
+                after: true
+            }
+        ],
+        'comma-style': [ // require a comma after and on the same line as an array element, object property, or variable declaration
+            'error',
+            'last'
+        ],
         complexity: 'off',
         'computed-property-spacing': 'off',
         'consistent-return': 'off',
@@ -49,7 +77,7 @@ module.exports = {
         'function-paren-newline': 'off',
         'generator-star-spacing': 'off',
         'getter-return': 'error', // enforce `return` statements in getters
-        'global-require': 'off',
+        'global-require': 'off', // enforce `require()` on the top-level module scope
         'guard-for-in': 'off',
         'handle-callback-err': 'off',
         'id-blacklist': 'off', // disallow specified identifiers
@@ -58,7 +86,12 @@ module.exports = {
         'implicit-arrow-linebreak': 'off',
         indent: [ // require consistent indentation
             'error',
-            4 // 4 spaces
+            4, // 4 spaces
+            {
+                ignoredNodes: [
+                    'JSXElement *'
+                ]
+            }
         ],
         'indent-legacy': 'off', // deprecated, replaced by indent
         'init-declarations': 'off',
@@ -93,8 +126,8 @@ module.exports = {
         'no-await-in-loop': 'off',
         'no-bitwise': 'error', // disallow bitwise operators
         'no-buffer-constructor': 'off',
-        'no-caller': 'off',
-        'no-case-declarations': 'error',
+        'no-caller': 'error', // disallow the use of caller/callee
+        'no-case-declarations': 'error', // disallow lexical declarations in case/default clauses
         'no-catch-shadow': 'off',
         'no-class-assign': 'error', // disallow modifying variables of class declarations
         'no-compare-neg-zero': 'error', // disallow comparing against -0
@@ -108,12 +141,12 @@ module.exports = {
                 ]
             }
         ],
-        'no-const-assign': 'error',
+        'no-const-assign': 'error', // disallow modifying variables that are declared using `const`
         'no-constant-condition': 'error', // disallow constant expressions in conditions
         'no-continue': 'off',
-        'no-control-regex': 'error',
+        'no-control-regex': 'error', // disallow control characters in regular expressions
         'no-debugger': 'error', // disallow the use of `debugger`
-        'no-delete-var': 'error',
+        'no-delete-var': 'error', // disallow deleting variables
         'no-div-regex': 'off',
         'no-dupe-args': 'error', // disallow duplicate arguments in function definitions
         'no-dupe-class-members': 'error', // disallow duplicate name in class members
@@ -122,37 +155,42 @@ module.exports = {
         'no-duplicate-imports': 'error', // disallow duplicate imports
         'no-else-return': 'off',
         'no-empty': 'error', // disallow empty block statements
-        'no-empty-character-class': 'error',
+        'no-empty-character-class': 'error', // disallow empty character classes in regular expressions
         'no-empty-function': 'off',
         'no-empty-pattern': 'error',
         'no-eq-null': 'off',
         'no-eval': 'error', // disallow the use of `eval()`
-        'no-ex-assign': 'error',
+        'no-ex-assign': 'error', // disallow reassigning exceptions in `catch` clauses
         'no-extend-native': 'off',
         'no-extra-bind': 'off',
         'no-extra-boolean-cast': 'error', // disallow unnecessary boolean casts
         'no-extra-label': 'off',
         'no-extra-parens': 'off',
-        'no-extra-semi': 'error',
+        'no-extra-semi': 'error', // disallow unnecessary semicolons
         'no-fallthrough': 'error',
         'no-floating-decimal': 'off',
-        'no-func-assign': 'error',
+        'no-func-assign': 'error', // disallow reassigning `function` declarations
         'no-global-assign': 'error',
         'no-implicit-coercion': 'off',
         'no-implicit-globals': 'off',
         'no-implied-eval': 'off',
         'no-inline-comments': 'off',
         'no-inner-declarations': 'error',
-        'no-invalid-regexp': 'error',
+        'no-invalid-regexp': 'error', // disallow invalid regular expression strings in `RegExp` constructors
         'no-invalid-this': 'off',
-        'no-irregular-whitespace': 'error',
+        'no-irregular-whitespace': 'error', // disallow irregular whitespace
         'no-iterator': 'off',
         'no-label-var': 'off',
         'no-labels': 'off',
         'no-lone-blocks': 'off',
         'no-lonely-if': 'off',
         'no-loop-func': 'off',
-        'no-magic-numbers': 'off',
+        'no-magic-numbers': [ // disallow magic numbers
+            'warn',
+            {
+                ignoreArrayIndexes: true
+            }
+        ],
         'no-mixed-operators': 'off',
         'no-mixed-requires': 'off',
         'no-mixed-spaces-and-tabs': 'error',
@@ -167,21 +205,21 @@ module.exports = {
         'no-new': 'off',
         'no-new-func': 'off',
         'no-new-object': 'off',
-        'no-new-require': 'off',
+        'no-new-require': 'error', // disallow `new require()`
         'no-new-symbol': 'error',
         'no-new-wrappers': 'off',
-        'no-obj-calls': 'error',
+        'no-obj-calls': 'error', // disallow calling global object properties as functions
         'no-octal': 'error',
         'no-octal-escape': 'off',
         'no-param-reassign': 'off',
         'no-path-concat': 'off',
         'no-plusplus': 'off',
-        'no-process-env': 'off',
+        'no-process-env': 'off', // disallow `process.env`
         'no-process-exit': 'off',
         'no-proto': 'off',
-        'no-prototype-builtins': 'off',
+        'no-prototype-builtins': 'warn', // disallow the use of `Object.prototypes` builtins directly
         'no-redeclare': 'error',
-        'no-regex-spaces': 'error',
+        'no-regex-spaces': 'error', // disallow multiple spaces in regular expression literals
         'no-restricted-globals': 'off',
         'no-restricted-imports': 'off',
         'no-restricted-modules': 'off',
@@ -196,28 +234,28 @@ module.exports = {
         'no-shadow': 'off',
         'no-shadow-restricted-names': 'off',
         'no-spaced-func': 'off',
-        'no-sparse-arrays': 'error',
+        'no-sparse-arrays': 'error', // disallow sparse arrays
         'no-sync': 'off',
         'no-tabs': 'off', // disallow all tabs
-        'no-template-curly-in-string': 'off',
+        'no-template-curly-in-string': 'warn', // disallow template literal placeholder syntax in regular strings
         'no-ternary': 'off', // disallow ternary operators
         'no-this-before-super': 'error',
         'no-throw-literal': 'off',
         'no-trailing-spaces': 'warn', // disallow trailing whitespace at the end of lines
-        'no-undef': 'error',
+        'no-undef': 'error', // disallow undeclared variables
         'no-undef-init': 'off',
         'no-undefined': 'off',
         'no-underscore-dangle': 'error', // disallow dangling underscores in identifiers
-        'no-unexpected-multiline': 'error',
+        'no-unexpected-multiline': 'error', // disallow confusing multiline expressions
         'no-unmodified-loop-condition': 'off',
         'no-unneeded-ternary': 'warn', // disallow ternary operators when simpler alternatives exist
-        'no-unreachable': 'error',
+        'no-unreachable': 'error', // disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
         'no-unsafe-finally': 'error',
         'no-unsafe-negation': 'error',
         'no-unused-expressions': 'off',
         'no-unused-labels': 'error',
-        'no-unused-vars': 'error',
-        'no-use-before-define': 'off',
+        'no-unused-vars': 'error', // disallow unused variables
+        'no-use-before-define': 'error', // disallow early use
         'no-useless-call': 'off',
         'no-useless-computed-key': 'off',
         'no-useless-concat': 'off',
@@ -273,15 +311,15 @@ module.exports = {
         'space-infix-ops': 'off',
         'space-unary-ops': 'off',
         'spaced-comment': 'off',
-        strict: 'off',
+        strict: 'off', // disallow strict mode directives
         'switch-colon-spacing': 'off',
         'symbol-description': 'off',
         'template-curly-spacing': 'off',
         'template-tag-spacing': 'off',
         'unicode-bom': 'off',
-        'use-isnan': 'error',
+        'use-isnan': 'error', // require calls to `isNaN()` when checking for `NaN`
         'valid-jsdoc': 'off',
-        'valid-typeof': 'error',
+        'valid-typeof': 'error', // enforce comparing `typeof` expressions against valid strings
         'vars-on-top': 'off',
         'wrap-iife': 'off',
         'wrap-regex': 'off',
