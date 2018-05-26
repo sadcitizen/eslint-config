@@ -33,8 +33,11 @@ module.exports = {
                 after: true
             }
         ],
-        'block-scoped-var': 'off',
-        'block-spacing': 'off',
+        'block-scoped-var': 'error', // enforce the use of variables within the scope they are defined
+        'block-spacing': [ // enforce spaces inside of blocks after opening block and before closing block
+            'error',
+            'always'
+        ],
         'brace-style': [ // require brace style
             'error',
             '1tbs'
@@ -58,12 +61,15 @@ module.exports = {
             'error',
             'last'
         ],
-        complexity: 'off',
+        complexity: 'off', // limit cyclomatic complexity
         'computed-property-spacing': 'off',
-        'consistent-return': 'off',
-        'consistent-this': 'off',
+        'consistent-return': 'error', // require `return` statements to always specify values
+        'consistent-this': [ // enforce consistent naming when capturing the current execution context
+            'error',
+            'that'
+        ],
         'constructor-super': 'error', // verify calls of `super()` in constructors
-        curly: 'off',
+        curly: 'error', // enforce consistent brace style for all control statements
         'default-case': 'off',
         'dot-location': 'off',
         'dot-notation': 'error', // require dot notation whenever possible
@@ -78,7 +84,7 @@ module.exports = {
         'generator-star-spacing': 'off',
         'getter-return': 'error', // enforce `return` statements in getters
         'global-require': 'off', // enforce `require()` on the top-level module scope
-        'guard-for-in': 'off',
+        'guard-for-in': 'off', // require or disallow guarding `for-in`
         'handle-callback-err': 'off',
         'id-blacklist': 'off', // disallow specified identifiers
         'id-length': 'off', // enforce minimum and maximum identifier lengths
@@ -104,23 +110,23 @@ module.exports = {
         'line-comment-position': 'off',
         'linebreak-style': 'off',
         'lines-around-comment': 'off',
-        'lines-around-directive': 'off',
+        'lines-around-directive': 'off', // deprecated, replaced by padding-line-between-statements
         'lines-between-class-members': 'off',
-        'max-classes-per-file': 'off',
-        'max-depth': 'off',
-        'max-len': 'off',
-        'max-lines': 'off',
-        'max-nested-callbacks': 'off',
-        'max-params': 'off',
-        'max-statements': 'off',
-        'max-statements-per-line': 'off',
+        'max-classes-per-file': 'error', // one class per file only
+        'max-depth': 'off', // enforce a maximum depth that blocks can be nested
+        'max-len': 'off', // enforce a maximum line length
+        'max-lines': 'off', // enforce a maximum file length
+        'max-nested-callbacks': 'off', // enforce a maximum depth that callbacks can be nested
+        'max-params': 'off', // enforce or disallow a maximum number of parameters in function definitions
+        'max-statements': 'off', // enforce a maximum number of statements allowed in function blocks
+        'max-statements-per-line': 'off', // enforce a maximum number of statements allowed per line
         'multiline-comment-style': 'off',
         'multiline-ternary': 'off',
-        'new-cap': 'off',
-        'new-parens': 'off',
-        'newline-after-var': 'off',
-        'newline-before-return': 'off',
-        'newline-per-chained-call': 'off',
+        'new-cap': 'error', // require constructor names to begin with a capital letter
+        'new-parens': 'error', // require parentheses when invoking a constructor with no arguments
+        'newline-after-var': 'off', // deprecated, replaced by padding-line-between-statements
+        'newline-before-return': 'off', // deprecated, replaced by padding-line-between-statements
+        'newline-per-chained-call': 'off', // require a newline after each call in a method chain
         'no-alert': 'error', // disallow the use of `alert`, `prompt` and `confirm` functions
         'no-array-constructor': 'off',
         'no-await-in-loop': 'off',
@@ -147,14 +153,19 @@ module.exports = {
         'no-control-regex': 'error', // disallow control characters in regular expressions
         'no-debugger': 'error', // disallow the use of `debugger`
         'no-delete-var': 'error', // disallow deleting variables
-        'no-div-regex': 'off',
+        'no-div-regex': 'off', // disallow division operators explicitly at the beginning of regular expressions
         'no-dupe-args': 'error', // disallow duplicate arguments in function definitions
         'no-dupe-class-members': 'error', // disallow duplicate name in class members
         'no-dupe-keys': 'error', // disallow duplicate keys in object literals
         'no-duplicate-case': 'error', // disallow a duplicate case label
         'no-duplicate-imports': 'error', // disallow duplicate imports
         'no-else-return': 'off',
-        'no-empty': 'error', // disallow empty block statements
+        'no-empty': [ // disallow empty block statements
+            'error',
+            {
+                allowEmptyCatch: true
+            }
+        ],
         'no-empty-character-class': 'error', // disallow empty character classes in regular expressions
         'no-empty-function': 'off',
         'no-empty-pattern': 'error',
@@ -165,7 +176,14 @@ module.exports = {
         'no-extra-bind': 'off',
         'no-extra-boolean-cast': 'error', // disallow unnecessary boolean casts
         'no-extra-label': 'off',
-        'no-extra-parens': 'off',
+        'no-extra-parens': [ // disallow unnecessary parentheses
+            'error',
+            'all',
+            {
+                nestedBinaryExpressions: false,
+                ignoreJSX: 'multi-line'
+            }
+        ],
         'no-extra-semi': 'error', // disallow unnecessary semicolons
         'no-fallthrough': 'error',
         'no-floating-decimal': 'off',
@@ -175,7 +193,7 @@ module.exports = {
         'no-implicit-globals': 'off',
         'no-implied-eval': 'off',
         'no-inline-comments': 'off',
-        'no-inner-declarations': 'error',
+        'no-inner-declarations': 'error', // disallow variable or `function` declarations in nested blocks
         'no-invalid-regexp': 'error', // disallow invalid regular expression strings in `RegExp` constructors
         'no-invalid-this': 'off',
         'no-irregular-whitespace': 'error', // disallow irregular whitespace
@@ -198,9 +216,9 @@ module.exports = {
         'no-multi-spaces': 'off',
         'no-multi-str': 'off',
         'no-multiple-empty-lines': 'off',
-        'no-native-reassign': 'off',
+        'no-native-reassign': 'off', // deprecated, replaced by no-global-assign
         'no-negated-condition': 'off',
-        'no-negated-in-lhs': 'off',
+        'no-negated-in-lhs': 'off', // deprecated, replaced by no-unsafe-negation
         'no-nested-ternary': 'warn', // disallow nested ternary expressions
         'no-new': 'off',
         'no-new-func': 'off',
@@ -233,7 +251,7 @@ module.exports = {
         'no-sequences': 'off',
         'no-shadow': 'off',
         'no-shadow-restricted-names': 'off',
-        'no-spaced-func': 'off',
+        'no-spaced-func': 'off', // deprecated, replaced by func-call-spacing
         'no-sparse-arrays': 'error', // disallow sparse arrays
         'no-sync': 'off',
         'no-tabs': 'off', // disallow all tabs
@@ -250,8 +268,8 @@ module.exports = {
         'no-unmodified-loop-condition': 'off',
         'no-unneeded-ternary': 'warn', // disallow ternary operators when simpler alternatives exist
         'no-unreachable': 'error', // disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
-        'no-unsafe-finally': 'error',
-        'no-unsafe-negation': 'error',
+        'no-unsafe-finally': 'error', // disallow control flow statements in `finally` blocks
+        'no-unsafe-negation': 'error', // disallow negating the left operand of relational operators
         'no-unused-expressions': 'off',
         'no-unused-labels': 'error',
         'no-unused-vars': 'error', // disallow unused variables
@@ -285,13 +303,13 @@ module.exports = {
         'prefer-numeric-literals': 'off',
         'prefer-object-spread': 'off',
         'prefer-promise-reject-errors': 'off',
-        'prefer-reflect': 'off',
+        'prefer-reflect': 'off', // deprecated
         'prefer-rest-params': 'off',
         'prefer-spread': 'off',
         'prefer-template': 'off',
         'quote-props': 'off',
         quotes: 'off',
-        radix: 'off',
+        radix: 'error', // require radix parameter
         'require-await': 'off',
         'require-jsdoc': 'off',
         'require-yield': 'error',
@@ -318,12 +336,18 @@ module.exports = {
         'template-tag-spacing': 'off',
         'unicode-bom': 'off',
         'use-isnan': 'error', // require calls to `isNaN()` when checking for `NaN`
-        'valid-jsdoc': 'off',
+        'valid-jsdoc': 'off', // enforce or disallow valid JSDoc comments
         'valid-typeof': 'error', // enforce comparing `typeof` expressions against valid strings
         'vars-on-top': 'off',
         'wrap-iife': 'off',
         'wrap-regex': 'off',
         'yield-star-spacing': 'off',
-        yoda: 'off'
+        yoda: [ // disallow yoda conditions
+            'error',
+            'never',
+            {
+                exceptRange: true
+            }
+        ]
     }
 };
