@@ -43,7 +43,16 @@ module.exports = {
             'tag-aligned'
         ],
         'react/jsx-closing-tag-location': 'error', // validate closing tag location in jsx
-        'react/jsx-curly-spacing': '', // enforce or disallow spaces inside of curly braces in jsx attributes and expressions
+        'react/jsx-curly-spacing': [ // enforce or disallow spaces inside of curly braces in jsx attributes and expressions
+            'error',
+            'never'//,
+            // {
+            //     allowMultiline: true,
+            //     children: {
+            //         when: 'always'
+            //     }
+            // }
+        ],
         'react/jsx-equals-spacing': [ // enforce or disallow spaces around equal signs in jsx attributes
             'error',
             'never'
@@ -102,7 +111,10 @@ module.exports = {
             }
         ],
         'react/jsx-one-expression-per-line': 'warn', // limit to one expression per line in jsx
-        'react/jsx-curly-brace-presence': '', // enforce curly braces or disallow unnecessary curly braces in jsx
+        'react/jsx-curly-brace-presence': [ // enforce curly braces or disallow unnecessary curly braces in jsx
+            'error',
+            'never'
+        ],
         'react/jsx-pascal-case': 'error', // enforce PascalCase for user-defined jsx components
         'react/jsx-props-no-multi-spaces': 'error', // disallow multiple spaces between inline jsx props
         'react/jsx-sort-default-props': 'off', // enforce default props alphabetical sorting
@@ -124,7 +136,18 @@ module.exports = {
         ],
         'react/jsx-uses-react': 'error', // prevent react to be incorrectly marked as unused
         'react/jsx-uses-vars': 'error', // prevent variables used in jsx to be incorrectly marked as unused
-        'react/jsx-wrap-multilines': '', // prevent missing parentheses around multilines jsx
+        'react/jsx-wrap-multilines': [ // prevent missing parentheses around multilines jsx
+            'error',
+            {
+                declaration: 'parens-new-line',
+                assignment: 'parens-new-line',
+                return: 'parens-new-line',
+                arrow: 'parens-new-line',
+                condition: 'parens-new-line',
+                logical: 'parens-new-line',
+                prop: 'parens-new-line',
+            }
+        ],
         'react/no-access-state-in-setstate': 'warn', // prevent using `this.state` inside `this.setState`
         'react/no-array-index-key': 'error', // prevent using Array index in key props
         'react/no-children-prop': 'error', // prevent passing children as props
@@ -177,7 +200,24 @@ module.exports = {
         'react/require-optimization': 'off', // enforce react components to have a `shouldcomponentUpdate` method
         'react/require-render-return': 'error', // enforce ES5 or ES6 class for returning value in render function
         'react/self-closing-comp': 'error', // prevent extra closing tags for components without children
-        'react/sort-comp': '', // enforce component methods order
+        'react/sort-comp': [ // enforce component methods order
+            'error',
+            {
+                order: [
+                    'type-annotations',
+                    'static-methods',
+                    'lifecycle',
+                    '/^handle.+$/',
+                    '/^is.+$/',
+                    '/^has.+$/',
+                    '/^get.+$/',
+                    '/^set.+$/',
+                    'everything-else',
+                    '/^render.+$/',
+                    'render'
+                ]
+            }
+        ],
         'react/sort-prop-types': [ // enforce propTypes declarations alphabetical sorting
             'warn',
             {
