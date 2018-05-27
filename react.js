@@ -121,7 +121,8 @@ module.exports = {
         'react/jsx-sort-props': [ // enforce props alphabetical sorting
             'warn',
             {
-                callbacksLast: true
+                callbacksLast: true,
+                noSortAlphabetically: true
             }
         ],
         'react/jsx-space-before-closing': 'off', // deprecated, replaced by react/jsx-tag-spacing
@@ -141,7 +142,7 @@ module.exports = {
             {
                 declaration: 'parens-new-line',
                 assignment: 'parens-new-line',
-                return: 'parens-new-line',
+                'return': 'parens-new-line',
                 arrow: 'parens-new-line',
                 condition: 'parens-new-line',
                 logical: 'parens-new-line',
@@ -186,6 +187,7 @@ module.exports = {
             {
                 ignore: [
                     'location',
+                    'match',
                     'params'
                 ]
             }
