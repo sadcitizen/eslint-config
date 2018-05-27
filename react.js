@@ -18,21 +18,21 @@ module.exports = {
         'react'
     ],
     rules: {
-        'react/boolean-prop-naming:': [ // enforces consistent naming for boolean props
+        'react/boolean-prop-naming': [ // enforces consistent naming for boolean props
             'error',
             {
                 rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+'
             }
         ],
-        'react/button-has-type:': 'error', // forbid `button` element without an explicit `type` attribute
-        'react/default-props-match-prop-types:': '', // prevent extraneous defaultProps on components
-        'react/destructuring-assignment:': '', // Rule enforces consistent usage of destructuring assignment in component
-        'react/display-name:': '', // prevent missing displayName in a react component definition
-        'react/forbid-component-props:': '', // forbid certain props on components
-        'react/forbid-dom-props:': '', // forbid certain props on DOM Nodes
-        'react/forbid-elements:': '', // forbid certain elements
-        'react/forbid-prop-types:': '', // forbid certain propTypes
-        'react/forbid-foreign-prop-types:': '', // forbid foreign propTypes
+        'react/button-has-type': 'error', // forbid `button` element without an explicit `type` attribute
+        'react/default-props-match-prop-types': 'error', // prevent extraneous `defaultProps` on components
+        'react/destructuring-assignment': 'off', // Rule enforces consistent usage of destructuring assignment in component
+        'react/display-name': 'off', // prevent missing displayName in a react component definition
+        'react/forbid-component-props': 'off', // forbid certain props on components
+        'react/forbid-dom-props': 'off', // forbid certain props on DOM Nodes
+        'react/forbid-elements': 'off', // forbid certain elements
+        'react/forbid-prop-types': 'off', // forbid certain propTypes
+        'react/forbid-foreign-prop-types': 'off', // forbid foreign propTypes
         'react/jsx-boolean-value': [ // enforce boolean attributes notation in jsx
             'warn',
             'never'
@@ -125,40 +125,40 @@ module.exports = {
         'react/jsx-uses-react': 'error', // prevent react to be incorrectly marked as unused
         'react/jsx-uses-vars': 'error', // prevent variables used in jsx to be incorrectly marked as unused
         'react/jsx-wrap-multilines': '', // prevent missing parentheses around multilines jsx
-        'react/no-access-state-in-setstate:': '', // prevent using this.state inside this.setState
-        'react/no-array-index-key:': 'error', // prevent using Array index in key props
-        'react/no-children-prop:': '', // prevent passing children as props
-        'react/no-danger:': '', // prevent usage of dangerous JSX properties
-        'react/no-danger-with-children:': '', // prevent problem with children and props.dangerouslySetInnerHTML
-        'react/no-deprecated:': '', // prevent usage of deprecated methods, including component lifecyle methods
-        'react/no-did-mount-set-state:': '', // prevent usage of setState in `componentDidMount`
-        'react/no-did-update-set-state:': '', // prevent usage of setState in `componentDidUpdate`
-        'react/no-direct-mutation-state:': '', // prevent direct mutation of `this.state`
-        'react/no-find-dom-node:': '', // prevent usage of `findDOMNode`
-        'react/no-is-mounted:': '', // prevent usage of `isMounted`
-        'react/no-multi-comp:': '', // prevent multiple component definition per file
-        'react/no-redundant-should-component-update:': '', // prevent usage of shouldcomponentUpdate when extending react.Purecomponent
-        'react/no-render-return-value:': '', // prevent usage of the return value of react.render
-        'react/no-set-state:': '', // prevent usage of setState
-        'react/no-typos:': '', // prevent common casing typos
-        'react/no-string-refs:': '', // prevent using string references in ref attribute.
-        'react/no-this-in-sfc:': '', // prevent using this in stateless functional components
-        'react/no-unescaped-entities:': '', // prevent invalid characters from appearing in markup
-        'react/no-unknown-property:': '', // prevent usage of unknown DOM property
-        'react/no-unused-prop-types:': '', // prevent definitions of unused prop types
-        'react/no-unused-state:': '', // prevent definitions of unused state properties
-        'react/no-will-update-set-state:': '', // prevent usage of setState in componentWillUpdate
+        'react/no-access-state-in-setstate': 'warn', // prevent using `this.state` inside `this.setState`
+        'react/no-array-index-key': 'error', // prevent using Array index in key props
+        'react/no-children-prop': 'error', // prevent passing children as props
+        'react/no-danger': 'error', // prevent usage of dangerous JSX properties
+        'react/no-danger-with-children': 'error', // prevent problem with children and props.dangerouslySetInnerHTML
+        'react/no-deprecated': 'warn', // prevent usage of deprecated methods, including component lifecyle methods
+        'react/no-did-mount-set-state': 'error', // prevent usage of setState in `componentDidMount`
+        'react/no-did-update-set-state': 'error', // prevent usage of setState in `componentDidUpdate`
+        'react/no-direct-mutation-state': 'error', // prevent direct mutation of `this.state`
+        'react/no-find-dom-node': 'warn', // prevent usage of `findDOMNode`
+        'react/no-is-mounted': 'error', // prevent usage of `isMounted`
+        'react/no-multi-comp': 'error', // prevent multiple component definition per file
+        'react/no-redundant-should-component-update': 'warn', // prevent usage of shouldcomponentUpdate when extending react.Purecomponent
+        'react/no-render-return-value': 'error', // prevent usage of the return value of `React.render`
+        'react/no-set-state': 'off', // prevent usage of `setState`
+        'react/no-typos': 'error', // prevent common casing typos
+        'react/no-string-refs': 'warn', // prevent using string references in ref attribute.
+        'react/no-this-in-sfc': 'error', // prevent using this in stateless functional components
+        'react/no-unescaped-entities': 'warn', // prevent invalid characters from appearing in markup
+        'react/no-unknown-property': 'error', // prevent usage of unknown DOM property
+        'react/no-unused-prop-types': 'error', // prevent definitions of unused prop types
+        'react/no-unused-state': 'error', // prevent definitions of unused state properties
+        'react/no-will-update-set-state': 'error', // prevent usage of setState in componentWillUpdate
         'react/prefer-es6-class': [ // enforce ES5 or ES6 class for react components
             'error',
             'always'
         ],
-        'react/prefer-stateless-function:': [ // enforce stateless react components to be written as a pure function
+        'react/prefer-stateless-function': [ // enforce stateless react components to be written as a pure function
             'warn',
             {
                 ignorePureComponents: true
             }
         ],
-        'react/prop-types:': [ // prevent missing props validation in a react component definition
+        'react/prop-types': [ // prevent missing props validation in a react component definition
             'error',
             {
                 ignore: [
@@ -167,19 +167,24 @@ module.exports = {
                 ]
             }
         ],
-        'react/react-in-jsx-scope:': '', // prevent missing react when using JSX
-        'react/require-default-props:': [ // enforce a defaultProps definition for every prop that is not a required prop
+        'react/react-in-jsx-scope': 'error', // prevent missing react when using jsx
+        'react/require-default-props': [ // enforce a defaultProps definition for every prop that is not a required prop
             'warn',
             {
                 forbidDefaultForRequired: true
             }
         ],
-        'react/require-optimization:': '', // enforce react components to have a shouldcomponentUpdate method
-        'react/require-render-return:': '', // enforce ES5 or ES6 class for returning value in render function
-        'react/self-closing-comp:': '', // prevent extra closing tags for components without children
-        'react/sort-comp:': '', // enforce component methods order
-        'react/sort-prop-types:': '', // enforce propTypes declarations alphabetical sorting
-        'react/style-prop-object:': '', // enforce style prop value being an object
-        'react/void-dom-elements-no-children:': '' // prevent void DOM elements (e.g. `<img />`, `<br />`) from receiving children
+        'react/require-optimization': 'off', // enforce react components to have a `shouldcomponentUpdate` method
+        'react/require-render-return': 'error', // enforce ES5 or ES6 class for returning value in render function
+        'react/self-closing-comp': 'error', // prevent extra closing tags for components without children
+        'react/sort-comp': '', // enforce component methods order
+        'react/sort-prop-types': [ // enforce propTypes declarations alphabetical sorting
+            'warn',
+            {
+                callbacksLast: true
+            }
+        ],
+        'react/style-prop-object': 'error', // enforce style prop value being an object
+        'react/void-dom-elements-no-children': 'error' // prevent void DOM elements (e.g. `<img />`, `<br />`) from receiving children
     }
 };
