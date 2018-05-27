@@ -116,7 +116,7 @@ module.exports = {
             'never'
         ],
         'react/jsx-pascal-case': 'error', // enforce PascalCase for user-defined jsx components
-        'react/jsx-props-no-multi-spaces': 'error', // disallow multiple spaces between inline jsx props
+        // 'react/jsx-props-no-multi-spaces': 'error', // disallow multiple spaces between inline jsx props
         'react/jsx-sort-default-props': 'off', // enforce default props alphabetical sorting
         'react/jsx-sort-props': [ // enforce props alphabetical sorting
             'warn',
