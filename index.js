@@ -310,7 +310,7 @@ module.exports = {
         'no-template-curly-in-string': 'warn', // disallow template literal placeholder syntax in regular strings
         'no-ternary': 'off', // disallow ternary operators
         'no-this-before-super': 'error', // disallow use of `this`/`super` before calling `super()` in constructors
-        'no-throw-literal': 'off',
+        'no-throw-literal': 'error', // restrict what can be thrown as an exception
         'no-trailing-spaces': 'warn', // disallow trailing whitespace at the end of lines
         'no-undef': 'error', // disallow undeclared variables
         'no-undef-init': 'off',
@@ -359,11 +359,17 @@ module.exports = {
         'prefer-object-spread': 'off',
         'prefer-promise-reject-errors': 'off',
         'prefer-reflect': 'off', // deprecated
-        'prefer-rest-params': 'off',
-        'prefer-spread': 'off',
-        'prefer-template': 'off',
-        'quote-props': 'off',
-        quotes: 'off',
+        'prefer-rest-params': 'error', // suggest using the rest parameters instead of `arguments`
+        'prefer-spread': 'error', // suggest using the spread operator instead of `apply()`
+        'prefer-template': 'error', // suggest using template literals instead of string concatenation
+        'quote-props': [ // require quotes around object literal property names
+            'error',
+            'as-needed'
+        ],
+        quotes: [ // enforce the consistent use of either backticks, double, or single quotes
+            'error',
+            'single'
+        ],
         radix: 'error', // require radix parameter
         'require-await': 'off',
         'require-jsdoc': 'off',
