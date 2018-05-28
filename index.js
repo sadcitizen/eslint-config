@@ -339,8 +339,16 @@ module.exports = {
         'no-whitespace-before-property': 'off',
         'no-with': 'error', // disallow `with` statements
         'nonblock-statement-body-position': 'off',
-        'object-curly-newline': 'off',
-        'object-curly-spacing': 'off',
+        'object-curly-newline': [ // enforce consistent line breaks inside braces
+            'warn',
+            {
+                consistent: true
+            }
+        ],
+        'object-curly-spacing': [ // enforce consistent spacing inside braces
+            'warn',
+            'always'
+        ],
         'object-property-newline': 'off',
         'object-shorthand': 'off',
         'one-var': 'off',
