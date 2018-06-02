@@ -10,6 +10,10 @@ module.exports = {
             jsx: true
         }
     },
+    env: {
+        browser: true,
+        es6: true
+    },
     extends: [
         './jsx-a11y.js',
         './import.js'
