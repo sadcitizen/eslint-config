@@ -124,8 +124,8 @@ module.exports = {
         'id-length': 'off', // enforce minimum and maximum identifier lengths
         'id-match': 'off', // require identifiers to match a specified regular expression
         'implicit-arrow-linebreak': [ // enforce the location of arrow function bodies with implicit returns
-            "error",
-            "beside"
+            'error',
+            'beside'
         ],
         indent: [ // require consistent indentation
             'error',
@@ -249,63 +249,81 @@ module.exports = {
         'no-invalid-regexp': 'error', // disallow invalid regular expression strings in `RegExp` constructors
         'no-invalid-this': 'off', // disallow `this` keywords outside of classes or class-like objects
         'no-irregular-whitespace': 'error', // disallow irregular whitespace
-        'no-iterator': 'off',
-        'no-label-var': 'off',
-        'no-labels': 'off',
-        'no-lone-blocks': 'off',
-        'no-lonely-if': 'off',
-        'no-loop-func': 'off',
+        'no-iterator': 'error', // disallow the use of the `__iterator__` property
+        'no-label-var': 'error', // disallow labels that share a name with a variable
+        'no-labels': 'error', // disallow labeled statements
+        'no-lone-blocks': 'error', // disallow unnecessary nested blocks
+        'no-lonely-if': 'warn', // disallow `if` statements as the only statement in `else` blocks
+        'no-loop-func': 'error', // disallow function declarations and expressions inside loop statements
         'no-magic-numbers': [ // disallow magic numbers
             'warn',
             {
                 ignoreArrayIndexes: true
             }
         ],
-        'no-mixed-operators': 'off',
-        'no-mixed-requires': 'off',
+        'no-mixed-operators': [ // disallow mixed binary operators
+            'error',
+            {
+                groups: [
+                    ['+', '-', '*', '/', '%', '**'],
+                    ['&', '|', '^', '~', '<<', '>>', '>>>'],
+                    ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+                    ['&&', '||'],
+                    ['in', 'instanceof']
+                ],
+                allowSamePrecedence: true
+            }
+        ],
+        'no-mixed-requires': 'off', // disallow `require` calls to be mixed with regular variable declarations
         'no-mixed-spaces-and-tabs': 'error', // disallow mixed spaces and tabs for indentation
-        'no-multi-assign': 'off',
-        'no-multi-spaces': 'off',
-        'no-multi-str': 'off',
-        'no-multiple-empty-lines': 'off',
+        'no-multi-assign': 'error', // disallow use of chained assignment expressions
+        'no-multi-spaces': 'warn', // disallow multiple spaces
+        'no-multi-str': 'error', // disallow multiline strings
+        'no-multiple-empty-lines': [ // disallow multiple empty lines
+            'error',
+            {
+                max: 1,
+                maxEOF: 1
+            }
+        ],
         'no-native-reassign': 'off', // deprecated, replaced by no-global-assign
-        'no-negated-condition': 'off',
+        'no-negated-condition': 'off', // disallow negated conditions
         'no-negated-in-lhs': 'off', // deprecated, replaced by no-unsafe-negation
         'no-nested-ternary': 'warn', // disallow nested ternary expressions
-        'no-new': 'off',
-        'no-new-func': 'off',
-        'no-new-object': 'off',
+        'no-new': 'error', // disallow `new` operators outside of assignments or comparisons
+        'no-new-func': 'error', // disallow `new` operators with the `Function` object
+        'no-new-object': 'error', // disallow `Object` constructors
         'no-new-require': 'error', // disallow `new require()`
         'no-new-symbol': 'error', // disallow `Symbol` constructor
-        'no-new-wrappers': 'off',
+        'no-new-wrappers': 'error', // disallow `new` operators with the `String`, `Number`, and `Boolean` objects
         'no-obj-calls': 'error', // disallow calling global object properties as functions
         'no-octal': 'error', // disallow octal literals
-        'no-octal-escape': 'off',
-        'no-param-reassign': 'off',
-        'no-path-concat': 'off',
-        'no-plusplus': 'off',
+        'no-octal-escape': 'off', // disallow octal escape sequences in string literals
+        'no-param-reassign': 'error', // disallow reassigning `function` parameters
+        'no-path-concat': 'error', // disallow string concatenation with `__dirname` and `__filename`, use `path.join` instead
+        'no-plusplus': 'warn', // disallow the unary operators `++` and `--`
         'no-process-env': 'off', // disallow `process.env`
-        'no-process-exit': 'off',
-        'no-proto': 'off',
+        'no-process-exit': 'error', // disallow the use of `process.exit()`
+        'no-proto': 'error', // disallow the use of the `__proto__` property
         'no-prototype-builtins': 'warn', // disallow the use of `Object.prototypes` builtins directly
         'no-redeclare': 'error', // disallow variable redeclaration
         'no-regex-spaces': 'error', // disallow multiple spaces in regular expression literals
-        'no-restricted-globals': 'off',
-        'no-restricted-imports': 'off',
-        'no-restricted-modules': 'off',
-        'no-restricted-properties': 'off',
-        'no-restricted-syntax': 'off',
-        'no-return-assign': 'off',
-        'no-return-await': 'off',
-        'no-script-url': 'off',
-        'no-self-assign': 'error', // disallow self assignment
-        'no-self-compare': 'off',
-        'no-sequences': 'off',
-        'no-shadow': 'off',
-        'no-shadow-restricted-names': 'off',
+        'no-restricted-globals': 'off', // disallow specified global variables
+        'no-restricted-imports': 'off', // disallow specified modules when loaded by `import`
+        'no-restricted-modules': 'off', // disallow specified modules when loaded by `require`
+        'no-restricted-properties': 'off', // disallow certain properties on certain objects
+        'no-restricted-syntax': 'off', // disallow specified syntax
+        'no-return-assign': 'warn', // disallow assignment operators in `return` statements
+        'no-return-await': 'error', // disallow unnecessary `return await`
+        'no-script-url': 'warn', // disallow `javascript:` urls
+        'no-self-assign': 'error', // disallow assignments where both sides are exactly the same
+        'no-self-compare': 'error', // disallow comparisons where both sides are exactly the same
+        'no-sequences': 'error', // disallow comma operators
+        'no-shadow': 'error', // disallow variable declarations from shadowing variables declared in the outer scope
+        'no-shadow-restricted-names': 'error', // disallow identifiers from shadowing restricted names
         'no-spaced-func': 'off', // deprecated, replaced by func-call-spacing
         'no-sparse-arrays': 'error', // disallow sparse arrays
-        'no-sync': 'off',
+        'no-sync': 'off', // disallow synchronous methods
         'no-tabs': 'off', // disallow all tabs
         'no-template-curly-in-string': 'warn', // disallow template literal placeholder syntax in regular strings
         'no-ternary': 'off', // disallow ternary operators
@@ -313,16 +331,16 @@ module.exports = {
         'no-throw-literal': 'error', // restrict what can be thrown as an exception
         'no-trailing-spaces': 'warn', // disallow trailing whitespace at the end of lines
         'no-undef': 'error', // disallow undeclared variables
-        'no-undef-init': 'off',
-        'no-undefined': 'off',
+        'no-undef-init': 'error', // disallow initializing variables to `undefined`
+        'no-undefined': 'error', // disallow the use of `undefined` as an identifier
         'no-underscore-dangle': 'error', // disallow dangling underscores in identifiers
         'no-unexpected-multiline': 'error', // disallow confusing multiline expressions
-        'no-unmodified-loop-condition': 'off',
+        'no-unmodified-loop-condition': 'off', // disallow unmodified loop conditions
         'no-unneeded-ternary': 'warn', // disallow ternary operators when simpler alternatives exist
         'no-unreachable': 'error', // disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
         'no-unsafe-finally': 'error', // disallow control flow statements in `finally` blocks
         'no-unsafe-negation': 'error', // disallow negating the left operand of relational operators
-        'no-unused-expressions': 'off',
+        'no-unused-expressions': 'error', // disallow unused expressions
         'no-unused-labels': 'error', // disallow unused labels
         'no-unused-vars': 'error', // disallow unused variables
         'no-use-before-define': 'error', // disallow early use
