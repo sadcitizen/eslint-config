@@ -395,13 +395,42 @@ module.exports = {
             'error',
             'never'
         ],
-        'padding-line-between-statements': 'off',
-        'prefer-arrow-callback': 'off',
-        'prefer-const': 'off',
-        'prefer-destructuring': 'off',
-        'prefer-numeric-literals': 'off',
-        'prefer-object-spread': 'off',
-        'prefer-promise-reject-errors': 'off',
+        'padding-line-between-statements': [ // require or disallow padding lines between statements
+            'error',
+            {
+                blankLine: 'always',
+                prev: '*',
+                next: 'return'
+            },
+            {
+                blankLine: 'always',
+                prev: [
+                    'const',
+                    'let',
+                    'var'
+                ],
+                next: '*'
+            },
+            {
+                blankLine: 'any',
+                prev: [
+                    'const',
+                    'let',
+                    'var'
+                ],
+                next: [
+                    'const',
+                    'let',
+                    'var'
+                ]
+            }
+        ],
+        'prefer-arrow-callback': 'error', // require using arrow functions for callbacks
+        'prefer-const': 'error', // require `const` declarations for variables that are never reassigned after declared
+        'prefer-destructuring': 'warn', // require destructuring from arrays and/or objects
+        'prefer-numeric-literals': 'off', // disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
+        'prefer-object-spread': 'warn', // disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead
+        'prefer-promise-reject-errors': 'error', // require using `Error` objects as `Promise` rejection reasons
         'prefer-reflect': 'off', // deprecated
         'prefer-rest-params': 'error', // suggest using the rest parameters instead of `arguments`
         'prefer-spread': 'error', // suggest using the spread operator instead of `apply()`
@@ -415,38 +444,84 @@ module.exports = {
             'single'
         ],
         radix: 'error', // require radix parameter
-        'require-await': 'off',
-        'require-jsdoc': 'off',
+        'require-await': 'error', // disallow async functions which have no `await` expression
+        'require-jsdoc': 'off', // require JSDoc comments
         'require-yield': 'error', // disallow generator functions that do not have `yield`
-        'rest-spread-spacing': 'off',
+        'rest-spread-spacing': [ // enforce spacing between rest and spread operators and their expressions
+            'error',
+            'never'
+        ],
         semi: [ // require semicolons instead of ASI
             'error',
             'always'
         ],
-        'semi-spacing': 'off',
-        'semi-style': 'off',
-        'sort-imports': 'off',
-        'sort-keys': 'off',
-        'sort-vars': 'off',
-        'space-before-blocks': 'off',
-        'space-before-function-paren': 'off',
-        'space-in-parens': 'off',
-        'space-infix-ops': 'off',
-        'space-unary-ops': 'off',
-        'spaced-comment': 'off',
+        'semi-spacing': [ // enforce consistent spacing before and after semicolons
+            'error',
+            {
+                before: false,
+                after: true
+            }
+        ],
+        'semi-style': [ // enforce location of semicolons
+            'error',
+            'last'
+        ],
+        'sort-imports': 'off', // enforce sorted import declarations within modules, use eslint-plugin-import instead
+        'sort-keys': 'off', // require object keys to be sorted
+        'sort-vars': 'off', // require variables within the same declaration block to be sorted
+        'space-before-blocks': [ // enforce consistent spacing before blocks
+            'error',
+            'always'
+        ],
+        'space-before-function-paren': [ // enforce consistent spacing before `function` definition opening parenthesis
+            'error',
+            {
+                anonymous: "always",
+                named: "never",
+                asyncArrow: "always"
+            }
+        ],
+        'space-in-parens': [ // enforce consistent spacing inside parentheses
+            "error",
+            "never"
+        ],
+        'space-infix-ops': 'error', // require spacing around infix operators
+        'space-unary-ops': [ // enforce consistent spacing before or after unary operators
+            'error',
+            {
+                words: true,
+                nonwords: false
+            }
+        ],
+        'spaced-comment': [ // enforce consistent spacing after the `//` or `/*` in a comment
+            'warn',
+            'always'
+        ],
         strict: 'off', // disallow strict mode directives
-        'switch-colon-spacing': 'off',
-        'symbol-description': 'off',
-        'template-curly-spacing': 'off',
-        'template-tag-spacing': 'off',
-        'unicode-bom': 'off',
+        'switch-colon-spacing': 'warn', // enforce spacing around colons of `switch` statements
+        'symbol-description': 'error', // require symbol descriptions
+        'template-curly-spacing': [ // disallow spacing around embedded expressions of template strings
+            'error',
+            "never"
+        ],
+        'template-tag-spacing': [ // disallow spacing between template tags and their literals
+            "error",
+            "never"
+        ],
+        'unicode-bom': 'error', // disallow Unicode byte order mark (BOM)
         'use-isnan': 'error', // require calls to `isNaN()` when checking for `NaN`
         'valid-jsdoc': 'off', // enforce or disallow valid JSDoc comments
         'valid-typeof': 'error', // enforce comparing `typeof` expressions against valid strings
-        'vars-on-top': 'off',
-        'wrap-iife': 'off',
-        'wrap-regex': 'off',
-        'yield-star-spacing': 'off',
+        'vars-on-top': 'off', // require `var` declarations be placed at the top of their containing scope
+        'wrap-iife': [ // require parentheses around immediate function invocations
+            "error",
+            "inside"
+        ],
+        'wrap-regex': 'off', // require parenthesis around regex literals
+        'yield-star-spacing': [ // disallow spacing before the `*` in `yield*` expressions
+            "error",
+            "before"
+        ],
         yoda: [ // disallow yoda conditions
             'error',
             'never',
