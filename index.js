@@ -476,14 +476,14 @@ module.exports = {
         'space-before-function-paren': [ // enforce consistent spacing before `function` definition opening parenthesis
             'error',
             {
-                anonymous: "always",
-                named: "never",
-                asyncArrow: "always"
+                anonymous: 'always',
+                named: 'never',
+                asyncArrow: 'always'
             }
         ],
         'space-in-parens': [ // enforce consistent spacing inside parentheses
-            "error",
-            "never"
+            'error',
+            'never'
         ],
         'space-infix-ops': 'error', // require spacing around infix operators
         'space-unary-ops': [ // enforce consistent spacing before or after unary operators
@@ -502,11 +502,11 @@ module.exports = {
         'symbol-description': 'error', // require symbol descriptions
         'template-curly-spacing': [ // disallow spacing around embedded expressions of template strings
             'error',
-            "never"
+            'never'
         ],
         'template-tag-spacing': [ // disallow spacing between template tags and their literals
-            "error",
-            "never"
+            'error',
+            'never'
         ],
         'unicode-bom': 'error', // disallow Unicode byte order mark (BOM)
         'use-isnan': 'error', // require calls to `isNaN()` when checking for `NaN`
@@ -514,13 +514,13 @@ module.exports = {
         'valid-typeof': 'error', // enforce comparing `typeof` expressions against valid strings
         'vars-on-top': 'off', // require `var` declarations be placed at the top of their containing scope
         'wrap-iife': [ // require parentheses around immediate function invocations
-            "error",
-            "inside"
+            'error',
+            'inside'
         ],
         'wrap-regex': 'off', // require parenthesis around regex literals
         'yield-star-spacing': [ // disallow spacing before the `*` in `yield*` expressions
-            "error",
-            "before"
+            'error',
+            'before'
         ],
         yoda: [ // disallow yoda conditions
             'error',
