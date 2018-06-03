@@ -164,7 +164,8 @@ module.exports = {
             'error',
             'always'
         ],
-        'max-classes-per-file': 'error', // one class per file only
+        // rule for eslint 5.0
+        // 'max-classes-per-file': 'error', // one class per file only
         'max-depth': 'off', // enforce a maximum depth that blocks can be nested
         'max-len': 'off', // enforce a maximum line length
         'max-lines': 'off', // enforce a maximum file length
@@ -381,7 +382,10 @@ module.exports = {
                 avoidExplicitReturnArrows: true
             }
         ],
-        'one-var': 'error', // enforce variables to be declared either together or separately in functions
+        'one-var': [ // enforce variables to be declared either together or separately in functions
+            'warn',
+            'never'
+        ],
         'one-var-declaration-per-line': [ // require newlines around variable declarations
             'error',
             'always'
@@ -429,7 +433,8 @@ module.exports = {
         'prefer-const': 'error', // require `const` declarations for variables that are never reassigned after declared
         'prefer-destructuring': 'warn', // require destructuring from arrays and/or objects
         'prefer-numeric-literals': 'off', // disallow `parseInt()` and `Number.parseInt()` in favor of binary, octal, and hexadecimal literals
-        'prefer-object-spread': 'warn', // disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead
+        // rule for eslint 5.0
+        //'prefer-object-spread': 'warn', // disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead
         'prefer-promise-reject-errors': 'error', // require using `Error` objects as `Promise` rejection reasons
         'prefer-reflect': 'off', // deprecated
         'prefer-rest-params': 'error', // suggest using the rest parameters instead of `arguments`
