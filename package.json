@@ -1,6 +1,6 @@
 {
   "name": "@sadcitizen/eslint-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "default eslint configuration",
   "main": "index.js",
   "scripts": {
