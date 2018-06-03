@@ -344,19 +344,19 @@ module.exports = {
         'no-unused-labels': 'error', // disallow unused labels
         'no-unused-vars': 'error', // disallow unused variables
         'no-use-before-define': 'error', // disallow early use
-        'no-useless-call': 'off',
-        'no-useless-computed-key': 'off',
-        'no-useless-concat': 'off',
-        'no-useless-constructor': 'off',
+        'no-useless-call': 'error', // disallow unnecessary calls to `.call()` and `.apply()`
+        'no-useless-computed-key': 'error', // disallow unnecessary computed property keys in object literals
+        'no-useless-concat': 'error', // disallow unnecessary concatenation of literals or template literals
+        'no-useless-constructor': 'error', // disallow unnecessary constructors
         'no-useless-escape': 'error', // disallow unnecessary escape usage
-        'no-useless-rename': 'off',
+        'no-useless-rename': 'error', // disallow renaming import, export, and destructured assignments to the same name
         'no-useless-return': 'error', // disallow redundant return statements
-        'no-var': 'off',
+        'no-var': 'error', // require `let` or `const` instead of `var`
         'no-void': 'error', // disallow `void` operators
-        'no-warning-comments': 'off',
-        'no-whitespace-before-property': 'off',
+        'no-warning-comments': 'off', // disallow specified warning terms in comments
+        'no-whitespace-before-property': 'error', // disallow whitespace before properties
         'no-with': 'error', // disallow `with` statements
-        'nonblock-statement-body-position': 'off',
+        'nonblock-statement-body-position': 'off', // enforce the location of single-line statements
         'object-curly-newline': [ // enforce consistent line breaks inside braces
             'warn',
             {
@@ -367,16 +367,34 @@ module.exports = {
             'warn',
             'always'
         ],
-        'object-property-newline': 'off',
-        'object-shorthand': 'off',
-        'one-var': 'off',
-        'one-var-declaration-per-line': 'off',
-        'operator-assignment': 'off',
+        'object-property-newline': [ // enforce placing object properties on separate lines
+            'error',
+            {
+                allowAllPropertiesOnSameLine: true
+            }
+        ],
+        'object-shorthand': [ // require or disallow method and property shorthand syntax for object literals
+            'error',
+            'always',
+            {
+                avoidQuotes: true,
+                avoidExplicitReturnArrows: true
+            }
+        ],
+        'one-var': 'error', // enforce variables to be declared either together or separately in functions
+        'one-var-declaration-per-line': [ // require newlines around variable declarations
+            'error',
+            'always'
+        ],
+        'operator-assignment': 'warn', // require assignment operator shorthand where possible
         'operator-linebreak': [ // enforce consistent linebreak style for operators
             'error',
             'before'
         ],
-        'padded-blocks': 'off',
+        'padded-blocks': [ // disallow padding within blocks
+            'error',
+            'never'
+        ],
         'padding-line-between-statements': 'off',
         'prefer-arrow-callback': 'off',
         'prefer-const': 'off',
