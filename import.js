@@ -78,6 +78,6 @@ module.exports = {
             }
         ],
         'import/prefer-default-export': 'warn', // prefer a default export if module exports a single name
-        'import/unambiguous': 'error' // report potentially ambiguous parse goal (`script` vs. `module`)
+        'import/unambiguous': 'off' // report potentially ambiguous parse goal (`script` vs. `module`)
     }
 };
