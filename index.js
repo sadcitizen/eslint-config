@@ -256,12 +256,7 @@ module.exports = {
         'no-lone-blocks': 'error', // disallow unnecessary nested blocks
         'no-lonely-if': 'warn', // disallow `if` statements as the only statement in `else` blocks
         'no-loop-func': 'error', // disallow function declarations and expressions inside loop statements
-        'no-magic-numbers': [ // disallow magic numbers
-            'warn',
-            {
-                ignoreArrayIndexes: true
-            }
-        ],
+        'no-magic-numbers': 'off', // disallow magic numbers
         'no-mixed-operators': [ // disallow mixed binary operators
             'error',
             {
