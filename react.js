@@ -114,7 +114,12 @@ module.exports = {
                 allowGlobals: true
             }
         ],
-        'react/jsx-one-expression-per-line': 'warn', // limit to one expression per line in jsx
+        'react/jsx-one-expression-per-line': [ // limit to one expression per line in jsx
+            'warn',
+            {
+                allow: 'single-child'
+            }
+        ],
         'react/jsx-curly-brace-presence': [ // enforce curly braces or disallow unnecessary curly braces in jsx
             'error',
             'never'
