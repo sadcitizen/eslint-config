@@ -16,9 +16,7 @@ module.exports = {
         'accessor-pairs': 'off', // require getter/setter pairs in objects
         'array-bracket-newline': [ // enforce line breaks after opening and before closing array brackets
             'error',
-            {
-                multiline: true
-            }
+            'consistent'
         ],
         'array-bracket-spacing': [ // disallow spaces inside of brackets
             'error',
@@ -27,9 +25,7 @@ module.exports = {
         'array-callback-return': 'error', // enforces return statements in callbacks of array’s methods
         'array-element-newline': [ // enforce line breaks between array elements
             'error',
-            {
-                multiline: true
-            }
+            'consistent'
         ],
         'arrow-body-style': [ // enforces no braces where they can be omitted
             'error',
@@ -107,7 +103,7 @@ module.exports = {
         'func-style': 'off', // enforce the consistent use of either `function` declarations or expressions
         'function-paren-newline': [ // enforce consistent line breaks inside function parentheses
             'error',
-            'multiline'
+            'consistent'
         ],
         'generator-star-spacing': [ // enforce spacing around the * in generator functions
             'error',
