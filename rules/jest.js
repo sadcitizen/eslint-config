@@ -9,19 +9,17 @@ module.exports = {
             withinDescribe: 'test'
         }
     ],
-    'jest/lowercase-name': 'warn', // enforce lowercase test names
-    'jest/no-disabled-tests': 'warn', // disallow disabled tests
-    'jest/no-focused-tests': 'error', // disallow focused tests
-    'jest/no-hooks': 'off', // disallow setup and teardown hooks
-    'jest/no-identical-title': 'error', // disallow identical titles
-    'jest/no-jest-import': 'error', // disallow importing jest
-    'jest/no-large-snapshots': 'off', // disallow large snapshots
-    'jest/no-test-prefixes': 'error', // disallow using `f` & `x` prefixes to define focused/skipped tests
-    'jest/prefer-to-have-length': 'warn', // suggest using `toHaveLength()`
+    'jest/no-duplicate-hooks': 'error', // disallow duplicate hooks within a `describe` block
+    'jest/no-if': 'error', // disallow conditional logic
+    'jest/no-test-return-statement': 'error', // disallow explicitly returning from tests
+    'jest/no-truthy-falsy': 'error', // disallow using `toBeTruthy()` & `toBeFalsy()`
+    'jest/prefer-hooks-on-top':	'warn', // suggest to have all hooks at top-level before tests
+    'jest/prefer-spy-on': 'warn', // suggest using `jest.spyOn()`
     'jest/prefer-to-be-null': 'warn', // suggest using `toBeNull()`
     'jest/prefer-to-be-undefined': 'warn', // suggest using `toBeUndefined()`
-    'jest/prefer-expect-assertions': 'off', // suggest using `expect.assertions()` or `expect.hasAssertions()`
-    'jest/valid-describe': 'error', // enforce valid `describe()` callback
-    'jest/valid-expect': 'error', // enforce valid `expect()` usage
-    'jest/valid-expect-in-promise': 'off' // enforce having return statement when testing with promises
+    'jest/prefer-to-contain': 'warn', // suggest using `toContain()`
+    'jest/prefer-to-have-length': 'warn', // suggest using `toHaveLength()`
+    'jest/prefer-todo': 'warn', // suggest using `test.todo()`
+    'jest/require-top-level-describe': 'error', // require a top-level `describe` block
+    'jest/valid-title': 'error' // enforce valid titles for jest blocks
 };
