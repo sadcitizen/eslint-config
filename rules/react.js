@@ -177,6 +177,7 @@ module.exports = {
     'react/sort-prop-types': [ // enforce propTypes declarations alphabetical sorting
         'warn',
         {
+            noSortAlphabetically: true,
             callbacksLast: true
         }
     ],
