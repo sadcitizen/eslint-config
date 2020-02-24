@@ -1,5 +1,7 @@
+const rules = require('./rules/stylistic-issues');
+
 /**
- * https://eslint.org/docs/rules/
+ * https://eslint.org/docs/rules/#stylistic-issues
  */
 module.exports = {
     extends: [
@@ -19,11 +21,5 @@ module.exports = {
         commonjs: true,
         es2020: true
     },
-    rules: Object.assign({},
-        require('./rules/best-practices'),
-        require('./rules/ecmascript-6'),
-        require('./rules/errors'),
-        require('./rules/node'),
-        require('./rules/variables')
-    )
+    rules
 };
