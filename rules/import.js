@@ -9,7 +9,7 @@ module.exports = {
             ignorePackages: true
         }
     ],
-    'import/first': 'error', // ensure all imports appear before other statements
+    'import/first': 'warn', // ensure all imports appear before other statements
     'import/newline-after-import': 'warn', // enforce a newline after import statements
     'import/no-absolute-path': 'error', // forbid import of modules using absolute paths
     'import/no-cycle': 'error', // forbid a module from importing a module with a dependency path back to itself
