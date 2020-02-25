@@ -26,7 +26,7 @@ module.exports = {
     'no-floating-decimal': 'error', // disallow floating decimals
     'no-implicit-coercion': 'error', // disallow shorthand type conversions
     'no-implied-eval': 'error', // disallow the use of `eval()`-like methods
-    'no-invalid-this': 'error', // disallow `this` keywords outside of classes or class-like objects
+    // 'no-invalid-this': 'error', // disallow `this` keywords outside of classes or class-like objects
     'no-iterator': 'error', // disallow the use of the `__iterator__` property
     'no-labels': 'error', // disallow labeled statements
     'no-lone-blocks': 'error', // disallow unnecessary nested blocks
