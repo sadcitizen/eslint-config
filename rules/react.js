@@ -76,6 +76,7 @@ module.exports = {
     'react/jsx-no-bind': [ // prevent usage of `bind()` and arrow functions in jsx props
         'error',
         {
+            allowArrowFunctions: true,
             ignoreRefs: true
         }
     ],
