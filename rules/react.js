@@ -59,11 +59,11 @@ module.exports = {
         }
     ],
     'react/jsx-indent': [ // require consistent jsx indentation
-        'error',
+        'warn',
         4 // 4 spaces
     ],
     'react/jsx-indent-props': [ // require consistent props indentation in jsx
-        'error',
+        'warn',
         4 // 4 spaces
     ],
     'react/jsx-max-props-per-line': [ // limit maximum of props on a single line in jsx
