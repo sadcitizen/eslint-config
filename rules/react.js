@@ -48,7 +48,7 @@ module.exports = {
         'multiline'
     ],
     'react/jsx-fragments': [ // enforce shorthand or standard form for react fragments
-        'error',
+        'warn',
         'syntax'
     ],
     'react/jsx-handler-names': [ // enforce event handler naming conventions in jsx
