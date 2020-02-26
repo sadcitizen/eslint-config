@@ -31,6 +31,13 @@ module.exports = {
     'no-labels': 'error', // disallow labeled statements
     'no-lone-blocks': 'error', // disallow unnecessary nested blocks
     'no-loop-func': 'error', // disallow function declarations and expressions inside loop statements
+    // 'no-magic-numbers': [ // disallow magic numbers
+    //     'warn',
+    //     {
+    //         ignore: [-1, 0, 1],
+    //         ignoreArrayIndexes: true
+    //     }
+    // ],
     'no-multi-spaces': 'warn', // disallow multiple spaces
     'no-multi-str': 'error', // disallow multiline strings
     'no-new': 'error', // disallow `new` operators outside of assignments or comparisons
