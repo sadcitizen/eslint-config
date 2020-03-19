@@ -22,7 +22,7 @@ $ npm install @sadcitizen/eslint-config
 }
 ```
 
-### React, Jest and Flow
+### React, React Hooks and Jest
 
 `.eslintrc`:
 
@@ -31,7 +31,7 @@ $ npm install @sadcitizen/eslint-config
   "extends": [
       "@sadcitizen/eslint-config",
       "@sadcitizen/eslint-config/react",
-      "@sadcitizen/eslint-config/flowtype",
+      "@sadcitizen/eslint-config/react-hooks",
       "@sadcitizen/eslint-config/jest"
   ]
 }
